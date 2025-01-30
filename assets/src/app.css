@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TABLE STYLES */
+table{
+    @apply shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] rounded-xl w-full border-collapse
+}
+thead{
+    @apply bg-gray-100 text-gray-900 text-xs font-bold;
+}
+thead tr th{
+    @apply p-4 text-left;
+}
+thead tr th:first-child{
+    @apply rounded-tl-xl;
+}
+thead tr th:last-child{
+    @apply rounded-tr-xl;
+}
+tbody{
+    @apply text-gray-500 text-base font-normal;
+}
+tbody tr{
+    @apply border-b-[1px] border-solid border-zinc-200;
+}
+tbody tr td{
+    @apply p-4;
+}
+tbody tr:last-child{
+    @apply border-b-0;
+}

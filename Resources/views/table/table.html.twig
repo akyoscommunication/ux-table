@@ -1,0 +1,34 @@
+<div class="ux-table">
+    <table>
+        <thead>
+        {% set count = 0 %}
+        {% for tr in tHeader %}
+            {% set count = tr.ths|length > count ? tr.ths|length : count %}
+            <tr>
+                {% for th in tr.ths %}
+                    <th class="{% if th.sort and elements.isSorted(th.sort) %}sorted{% endif %}"
+                        {% if th.colspan %}colspan="{{ th.colspan }}"{% endif %}
+                            {% if th.rowspan %}rowspan="{{ th.rowspan }}"{% endif %}
+                    >
+                        {{ th.sort ? knp_pagination_sortable(elements, th.name|trans|upper, th.sort, {'sort': sort, 'sortDirection': sortDirection}, {},'@UXTable/table/sortable_link.html.twig') : th.name|trans|upper }}
+                    </th>
+                {% endfor %}
+                <th></th>
+            </tr>
+        {% endfor %}
+        </thead>
+        <tbody>
+        {% for el in elements %}
+            {% include trTemplate with {'el': el} %}
+        {% endfor %}
+        {% if elements is empty %}
+            <tr>
+                <td colspan="{{ count + 1 }}">{{ 'no_elements'|trans({}, 'messages') }}</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+    <div class="mt-4 flex justify-center">
+        {{ knp_pagination_render(elements, '@UXPagination/pagination/live_sliding.html.twig') }}
+    </div>
+</div>
