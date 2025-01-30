@@ -14,7 +14,7 @@
   "require": {
     "php": "^8.2",
     "symfony/ux-live-component": "^2.21",
-    "akyos/ux-pagination": "^1.0"
+    "akyos/ux-pagination": "*"
   },
   "require-dev": {
     "symfonycasts/tailwind-bundle": "^0.6.0"
