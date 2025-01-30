@@ -16,7 +16,7 @@ trait ComponentWithTableTrait
 
     public ?string $trTemplate = null;
 
-    public ?string $tableTemplate = 'theme/table/table.html.twig';
+    public ?string $tableTemplate = '@UXTable/table/table.html.twig';
 
     public function getTable(): false|string
     {;
