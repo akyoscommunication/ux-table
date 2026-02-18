@@ -1,4 +1,8 @@
 <div class="ux-table">
+    {% if filteredCountString is defined and filteredCountString is not null %}
+        <p class="ux-table__count">{{ filteredCountString }}</p>
+    {% endif %}
+    {% include '@UXPagination/pagination/items_per_page_select.html.twig' %}
     <table>
         <thead>
         {% set count = 0 %}

@@ -4,6 +4,7 @@
   "description": "A Symfony bundle table in live Component",
   "keywords": ["symfony", "PHP"],
   "minimum-stability": "stable",
+  "version": "2.0",
   "license": "proprietary",
   "authors": [
     {

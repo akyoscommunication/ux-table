@@ -19,15 +19,21 @@ trait ComponentWithTableTrait
     public ?string $tableTemplate = '@UXTable/table/table.html.twig';
 
     public function getTable(): false|string
-    {;
-        return $this->render($this->tableTemplate, array_merge([
+    {
+        $vars = [
             'elements' => $this->getElements(),
             'trTemplate' => $this->trTemplate,
             'tHeader' => $this->getTHeader(),
             'paginate' => $this->paginate,
             'sort' => $this->sort,
             'sortDirection' => $this->sortDirection,
-        ], $this->getTrTemplateVars()))->getContent();
+            'limitOptions' => $this->getLimitOptions(),
+            'limit' => $this->limit,
+        ];
+        if (method_exists($this, 'getFilteredCountString')) {
+            $vars['filteredCountString'] = $this->getFilteredCountString();
+        }
+        return $this->render($this->tableTemplate, array_merge($vars, $this->getTrTemplateVars()))->getContent();
     }
 
     protected function getTrTemplateVars(): array
