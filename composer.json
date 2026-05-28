@@ -4,7 +4,7 @@
   "description": "A Symfony bundle table in live Component",
   "keywords": ["symfony", "PHP"],
   "minimum-stability": "stable",
-  "version": "2.0",
+  "version": "2.1",
   "license": "proprietary",
   "authors": [
     {
@@ -14,11 +14,11 @@
   ],
   "require": {
     "php": "^8.2",
-    "symfony/ux-live-component": "^2.21",
+    "symfony/ux-live-component": "*",
     "akyos/ux-pagination": "*"
   },
   "require-dev": {
-    "symfonycasts/tailwind-bundle": "^0.6.0"
+    "symfonycasts/tailwind-bundle": "*"
   },
   "autoload": {
     "psr-4": { "Akyos\\UXTable\\": "" },
